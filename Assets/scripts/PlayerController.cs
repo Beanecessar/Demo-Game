@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour {
 
     public float moveSpeed = 10;
     public float rotateSpeed = 800;
+    public bool isBlockActive = false;
 
     Vector3 movementDir;
     Animator animator;
@@ -62,6 +63,11 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.K))
         {
             animator.SetTrigger("jump");
+        }
+
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            animator.SetTrigger("block");
         }
     }
 }
