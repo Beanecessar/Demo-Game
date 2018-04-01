@@ -125,9 +125,10 @@ GameObject:
   - component: {fileID: 209157018}
   - component: {fileID: 209157017}
   - component: {fileID: 209157021}
+  - component: {fileID: 209157022}
   m_Layer: 0
   m_Name: Player Camera
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -210,6 +211,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &209157022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 209157016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ba07a0ded2a4e04980dbd41b6123977, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  followedPlayer: {fileID: 747166438}
+  angleOfDepression: 45
+  perspectPos: {x: 0, y: 10, z: -10}
 --- !u!1 &248314257
 GameObject:
   m_ObjectHideFlags: 0
@@ -251,7 +266,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 747166438}
-  sceneWidth: 10
+  sceneWidth: 100
   sceneLength: 100
 --- !u!1001 &398030850
 Prefab:
@@ -435,7 +450,7 @@ GameObject:
   - component: {fileID: 747166443}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -662,8 +677,23 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 32, y: 8, z: 30}
-  m_Center: {x: -3.5, y: 20.5, z: -14.500001}
+  m_Size: {x: 32, y: 8, z: 60}
+  m_Center: {x: -3.4999995, y: 20.5, z: 0}
+--- !u!54 &1777242267
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1777242265}
+  serializedVersion: 2
+  m_Mass: 0.001
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!4 &1831332475 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 1572af8accbbcf7409393da389a12311, type: 3}

@@ -4,21 +4,22 @@ using UnityEngine;
 
 public class EnemyZombie : MonoBehaviour {
 
-    public GameObject target;
     public float guardingRange = 50;
     public float attackRange = 1;
     public float targetBindingRange = 0.5F;
     public float moveSpeed = 4;
-    public float rotateSpeed = 800;
+	public float rotateSpeed = 800;
+
+	GameObject target;
 	// Use this for initialization
 	void Start () {
-		
+		target = GameObject.FindGameObjectWithTag ("Player");
 	}
 	
 	// Update is called once per frame
 	void Update () {
         float targetDistance = (transform.position - target.transform.position).magnitude;
-        Vector3 movementDirection = (target.transform.position - transform.position).normalized;
+		Vector3 movementDirection = (target.transform.position - transform.position).normalized;
 
         if (targetDistance < guardingRange)
         //Face to target
@@ -33,6 +34,7 @@ public class EnemyZombie : MonoBehaviour {
             //Move to target
             {
                 transform.Translate(movementDirection * moveSpeed * Time.deltaTime, Space.World);
+				Debug.Log (movementDirection + " " + Time.deltaTime);
             }
         }
     }
@@ -43,7 +45,7 @@ public class EnemyZombie : MonoBehaviour {
 		{
             //Debug.Log(name + " damaged.");
 			//Destroy(this.gameObject);
-			this.gameObject.SetActive(false);
+			gameObject.SetActive(false);
 		}
     }
 }
