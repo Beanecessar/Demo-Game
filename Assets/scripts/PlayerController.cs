@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour {
     public float moveSpeed = 10;
     public float rotateSpeed = 800;
     public bool isBlockActive = false;
+    public bool isAttacking = false;
 
     Vector3 movementDir;
     Animator animator;
