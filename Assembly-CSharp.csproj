@@ -57,6 +57,7 @@
      <Compile Include="Assets\scripts\PlayerCamera.cs" />
      <Compile Include="Assets\scripts\PlayerController.cs" />
      <Compile Include="Assets\scripts\SceneManager.cs" />
+     <None Include="Assets\shaders\Reflective.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>S:/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
