@@ -52,9 +52,10 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\animations\player\IdleBehaviour.cs" />
+     <Compile Include="Assets\scripts\CameraController.cs" />
      <Compile Include="Assets\scripts\EnemyManager.cs" />
      <Compile Include="Assets\scripts\EnemyZombie.cs" />
-     <Compile Include="Assets\scripts\PlayerCamera.cs" />
+     <Compile Include="Assets\scripts\EnvironmentReflection.cs" />
      <Compile Include="Assets\scripts\PlayerController.cs" />
      <Compile Include="Assets\scripts\SceneManager.cs" />
      <None Include="Assets\shaders\Reflective.shader" />

@@ -9,6 +9,7 @@ public class SceneManager : MonoBehaviour {
 
     public float sceneWidth = 100;
     public float sceneLength = 100;
+	public uint maxDifficuty = 10;
 
 	EnemyManager enemyManager;
 
@@ -18,7 +19,7 @@ public class SceneManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		difficulty = 10;
+		difficulty = maxDifficuty;
 		enemyManager = new EnemyManager ();
 	}
 	

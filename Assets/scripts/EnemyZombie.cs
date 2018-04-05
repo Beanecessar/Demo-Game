@@ -34,7 +34,7 @@ public class EnemyZombie : MonoBehaviour {
             //Move to target
             {
                 transform.Translate(movementDirection * moveSpeed * Time.deltaTime, Space.World);
-				Debug.Log (movementDirection + " " + Time.deltaTime);
+				//Debug.Log (movementDirection + " " + Time.deltaTime);
             }
         }
     }

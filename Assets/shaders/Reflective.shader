@@ -1,8 +1,4 @@
-﻿// Upgrade NOTE: replaced '_World2Object' with 'unity_WorldToObject'
-
-// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
-
-Shader "Unlit/Blackhole"
+﻿Shader "Unlit/Reflective"
 {
 	Properties
 	{
@@ -44,9 +40,13 @@ Shader "Unlit/Blackhole"
 			{
 				v2f o;
 				o.vertex = UnityObjectToClipPos(v.vertex);
+				//Calculate in world space
+				//o.position = mul((float3x3)unity_ObjectToWorld, v.vertex.xyz);
+				//o.normal = UnityObjectToWorldNormal(v.normal);
+				//Calculate in view space
 				o.position = UnityObjectToViewPos( v.vertex.xyz);
-				float3x3 normalMat = (float3x3)UNITY_MATRIX_IT_MV;
-				o.normal = normalize(mul(normalMat, v.normal));
+				o.normal = normalize(mul((float3x3)UNITY_MATRIX_IT_MV, v.normal));
+
 				o.color = v.color;
 				return o;
 			}
@@ -54,9 +54,12 @@ Shader "Unlit/Blackhole"
 			fixed4 frag (v2f i) : SV_Target
 			{
 				float3 incidentDir = normalize(i.position);
+				//float3 incidentDir = normalize(i.position - _WorldSpaceCameraPos);
 				float3 reflexDir = reflect(incidentDir,i.normal);
 				fixed4 col = texCUBE(_Skybox, reflexDir);
-				//col = float4(-dot(incidentDir,i.normal),0,0,1);
+				//col = float4(incidentDir,1);
+				//col = float4(i.normal,1);
+				//col = float4(reflexDir,1);
 				return col;
 			}
 			ENDCG
