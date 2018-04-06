@@ -47,8 +47,8 @@ public class PlayerController : MonoBehaviour {
             transform.Translate(movementDir.normalized * moveSpeed * Time.deltaTime, Space.World);
 
             bool isClockwise = Vector3.Cross(movementDir.normalized, transform.forward.normalized).y < 0;
-            float rotateAngle = Mathf.Acos(Vector3.Dot(movementDir.normalized, transform.forward.normalized));
-            //float rotateAngle = -Vector3.Dot(movementDir.normalized, transform.forward.normalized) + 1;
+
+			float rotateAngle = Mathf.Acos(Vector3.Dot (movementDir.normalized, transform.forward.normalized));
             if (isClockwise)
                 transform.Rotate(0, rotateAngle * rotateSpeed * Time.deltaTime, 0, Space.World);
             else

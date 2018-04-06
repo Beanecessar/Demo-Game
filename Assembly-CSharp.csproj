@@ -56,9 +56,10 @@
      <Compile Include="Assets\scripts\EnemyManager.cs" />
      <Compile Include="Assets\scripts\EnemyZombie.cs" />
      <Compile Include="Assets\scripts\EnvironmentReflection.cs" />
+     <Compile Include="Assets\scripts\FixTransform.cs" />
      <Compile Include="Assets\scripts\PlayerController.cs" />
      <Compile Include="Assets\scripts\SceneManager.cs" />
-     <None Include="Assets\shaders\Reflective.shader" />
+     <None Include="Assets\shaders\CubeReflect.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>S:/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

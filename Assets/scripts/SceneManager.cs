@@ -20,7 +20,7 @@ public class SceneManager : MonoBehaviour {
 	void Start () 
 	{
 		difficulty = maxDifficuty;
-		enemyManager = new EnemyManager ();
+		enemyManager = ScriptableObject.CreateInstance<EnemyManager> ();
 	}
 	
 	// Update is called once per frame

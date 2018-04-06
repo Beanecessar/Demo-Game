@@ -22,6 +22,9 @@ public class CameraController : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.E)) 
 		{
 			isEditMode = !isEditMode;
+			Quaternion selfRotation = new Quaternion ();
+			selfRotation.eulerAngles = new Vector3 (angleOfDepression, 0, 0);
+			transform.rotation = selfRotation;
 		}
 		if (isEditMode) 
 		{
@@ -58,6 +61,30 @@ public class CameraController : MonoBehaviour {
 			}
 
 			transform.position += movementDir.normalized;
+
+			Vector3 viewRotation = new Vector3 (0, 0, 0);
+
+			if (Input.GetKey(KeyCode.UpArrow))
+			{
+				viewRotation.x -= 1;
+			}
+
+			if (Input.GetKey(KeyCode.DownArrow))
+			{
+				viewRotation.x += 1;
+			}
+
+			if (Input.GetKey (KeyCode.LeftArrow)) 
+			{
+				viewRotation.y -= 1;
+			}
+
+			if (Input.GetKey(KeyCode.RightArrow))
+			{
+				viewRotation.y += 1;
+			}
+
+			transform.Rotate (viewRotation * 2);
 		} 
 		else 
 		{

@@ -18,13 +18,23 @@ namespace Enemy
 		public GameObject instance;
 	}
 
-	public class EnemyManager : MonoBehaviour
+	public class EnemyManager : ScriptableObject
 	{
 		public EnemyManager()
 		{
 			enemyPrefabs = new Dictionary<EnemyType, GameObject> ();
 			activeEnemy = new List<EnemyInfo> ();
 			inactiveEnemy = new List<EnemyInfo> ();
+		}
+
+		public void OnEnable()
+		{
+			
+		}
+
+		public void OnDisable()
+		{
+
 		}
 
 		Dictionary<EnemyType, GameObject> enemyPrefabs;
@@ -34,20 +44,20 @@ namespace Enemy
 
 		public void CheckActive()
 		{
-			foreach (EnemyInfo enemyInfo in inactiveEnemy) 
+			for (int i = inactiveEnemy.Count-1; i>=0; --i) 
 			{
-				if (enemyInfo.instance.activeSelf) 
+				if (inactiveEnemy[i].instance.activeSelf) 
 				{
-					activeEnemy.Add (enemyInfo);
-					inactiveEnemy.Remove (enemyInfo);
+					activeEnemy.Add (inactiveEnemy[i]);
+					inactiveEnemy.Remove (inactiveEnemy[i]);
 				}
 			}
-			foreach (EnemyInfo enemyInfo in activeEnemy) 
+			for (int i = activeEnemy.Count-1; i>=0; --i) 
 			{
-				if (!enemyInfo.instance.activeSelf) 
+				if (!activeEnemy[i].instance.activeSelf) 
 				{
-					inactiveEnemy.Add (enemyInfo);
-					activeEnemy.Remove (enemyInfo);
+					inactiveEnemy.Add (activeEnemy[i]);
+					activeEnemy.Remove (activeEnemy[i]);
 				}
 			}
 		}

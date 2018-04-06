@@ -19,7 +19,8 @@ public class EnvironmentReflection : MonoBehaviour {
 
         environmentMap = new Cubemap(256, TextureFormat.ARGB32, true);
 
-		perspectiveCam.targetDisplay = -1;
+		//perspectiveCam.targetDisplay = -1;
+		perspectiveCam.depth = -1;
 		perspectiveCam.RenderToCubemap(environmentMap, 0x3F);
 
 		foreach (Material material in GetComponent<Renderer>().materials)
